@@ -11,14 +11,14 @@ public class Employee {
     @Column(name = "id")
     private int id;
     @Column(name = "first_name")
-    private String fistName;
+    private String firstName;
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "email")
     private String email;
 
     public Employee(String fistName, String lastName, String email) {
-        this.fistName = fistName;
+        this.firstName = fistName;
         this.lastName = lastName;
         this.email = email;
     }
@@ -30,7 +30,7 @@ public class Employee {
     public String toString() {
         return "Employee{" +
                 "id=" + id +
-                ", fistName='" + fistName + '\'' +
+                ", fistName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 '}';
@@ -45,11 +45,11 @@ public class Employee {
     }
 
     public String getFistName() {
-        return fistName;
+        return firstName;
     }
 
     public void setFistName(String fistName) {
-        this.fistName = fistName;
+        this.firstName = fistName;
     }
 
     public String getLastName() {
