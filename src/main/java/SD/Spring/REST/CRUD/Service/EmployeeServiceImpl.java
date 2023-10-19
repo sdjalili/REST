@@ -1,6 +1,6 @@
 package SD.Spring.REST.CRUD.Service;
 
-import SD.Spring.REST.CRUD.DAO.EmployeeRepository;
+import SD.Spring.REST.CRUD.Entity.EmployeeRepository;
 import SD.Spring.REST.CRUD.Entity.Employee;
 import SD.Spring.REST.CRUD.Exception.Employee.EmployeeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
