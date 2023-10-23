@@ -3,8 +3,8 @@ package SD.Spring.REST.CRUD.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "employee")
-public class Employee {
+@Table(name = "user")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,24 +16,63 @@ public class Employee {
     private String lastName;
     @Column(name = "email")
     private String email;
+    @Column(name="username")
+    private String userName;
+    @Column(name="password")
+    private String password;
+    @Column(name="enabled")
+    private boolean enabled;
 
-    public Employee(String fistName, String lastName, String email) {
+
+
+    public User() {
+    }
+
+
+    public User(String fistName, String lastName, String email, String userName, String password, boolean enabled) {
         this.fistName = fistName;
         this.lastName = lastName;
         this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.enabled = enabled;
     }
 
-    public Employee() {
+    public String getUserName() {
+        return userName;
     }
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "User{" +
                 "id=" + id +
                 ", fistName='" + fistName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
                 '}';
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public int getId() {

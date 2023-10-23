@@ -3,15 +3,15 @@ package SD.Spring.REST.CRUD.Entity;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-public class EmployeeErrorResponse {
+public class UserErrorResponse {
     private int status;
     private String message;
     private long timestampe;
 
-    public EmployeeErrorResponse() {
+    public UserErrorResponse() {
     }
 
-    public EmployeeErrorResponse(int status, String message, long timestampe) {
+    public UserErrorResponse(int status, String message, long timestampe) {
         this.status = status;
 
         this.message = message;

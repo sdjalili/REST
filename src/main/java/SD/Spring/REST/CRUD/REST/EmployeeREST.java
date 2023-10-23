@@ -1,6 +1,7 @@
 package SD.Spring.REST.CRUD.REST;
 
-import SD.Spring.REST.CRUD.Entity.Employee;
+
+import SD.Spring.REST.CRUD.Entity.User;
 import SD.Spring.REST.CRUD.Exception.Employee.EmployeeNotFoundException;
 import SD.Spring.REST.CRUD.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,8 @@ public class EmployeeREST {
     }
 
     @GetMapping("/employees/{employeeId}")
-    public Employee getEmployee(@PathVariable int employeeId) {
-        Employee theEmployee = null;
+    public User getEmployee(@PathVariable int employeeId) {
+        User theEmployee = null;
         theEmployee = employeeService.findEmployeeById(employeeId);
         if(employeeId <=0 || theEmployee ==null) {
             throw new EmployeeNotFoundException("Employee not found with id = " + employeeId);
@@ -28,20 +29,20 @@ public class EmployeeREST {
         return theEmployee;
     }
     @GetMapping("/employees")
-    public List<Employee> getAllEmployees(){
+    public List<User> getAllEmployees(){
         return employeeService.findAll();
     }
     @PostMapping("/employees")
-    public Employee insertEmployee(@RequestBody Employee theEmployee){
+    public User insertEmployee(@RequestBody User theEmployee){
          return employeeService.save(theEmployee);
     }
     @PutMapping("/employees")
-    public Employee updateEmployee(@RequestBody Employee theEmployee){
+    public User updateEmployee(@RequestBody User theEmployee){
        return employeeService.save(theEmployee);
     }
     @DeleteMapping("/employees/{employeeId}")
     public String deleteEmployee(@PathVariable int employeeId){
-        Employee deletedEmployee = employeeService.findEmployeeById(employeeId);
+        User deletedEmployee = employeeService.findEmployeeById(employeeId);
         employeeService.delete(employeeId);
         return "The Employee " + deletedEmployee.getFistName() + " " + deletedEmployee.getLastName()+
                 " with id = " + deletedEmployee.getId() + " deleted.";

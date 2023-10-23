@@ -1,12 +1,12 @@
 package SD.Spring.REST.CRUD.DAO;
 
-import SD.Spring.REST.CRUD.Entity.Employee;
+import SD.Spring.REST.CRUD.Entity.User;
 
 import java.util.List;
 
 public interface EmployeeDAO {
-    List<Employee> findAll();
-    Employee findById(int id);
-    Employee save(Employee theEmployee);
-    Employee deleteById(int id);
+    List<User> findAll();
+    User findById(int id);
+    User save(User theEmployee);
+    User deleteById(int id);
 }

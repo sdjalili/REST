@@ -1,7 +1,8 @@
 package SD.Spring.REST.CRUD.Service;
 
-import SD.Spring.REST.CRUD.Entity.EmployeeRepository;
-import SD.Spring.REST.CRUD.Entity.Employee;
+
+import SD.Spring.REST.CRUD.Entity.User;
+import SD.Spring.REST.CRUD.Entity.UserRepository;
 import SD.Spring.REST.CRUD.Exception.Employee.EmployeeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,14 +16,14 @@ public class EmployeeServiceImpl implements EmployeeService{
     //previous method for declaring DAO layer
     //private EmployeeDAO employeeDAO;
     //new approach to Spring Data JPA
-    private EmployeeRepository employeeRepository;
+    private UserRepository employeeRepository;
     @Autowired
-    public EmployeeServiceImpl(EmployeeRepository theEmployeeRepository){
+    public EmployeeServiceImpl(UserRepository theEmployeeRepository){
         employeeRepository = theEmployeeRepository;
     }
     @Override
-    public Employee findEmployeeById(int id) {
-        Optional<Employee> operationalEmployee = employeeRepository.findById(id);
+    public User findEmployeeById(int id) {
+        Optional<User> operationalEmployee = employeeRepository.findById(id);
         if(operationalEmployee.isPresent()) {
             return operationalEmployee.get();
         }else {
@@ -31,13 +32,13 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public List<Employee> findAll() {
+    public List<User> findAll() {
         return employeeRepository.findAll();
     }
 
     @Override
     @Transactional
-    public Employee save(Employee theEmployee) {
+    public User save(User theEmployee) {
         return employeeRepository.save(theEmployee);
     }
 

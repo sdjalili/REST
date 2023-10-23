@@ -1,6 +1,7 @@
 package SD.Spring.REST.CRUD.DAO;
 
-import SD.Spring.REST.CRUD.Entity.Employee;
+
+import SD.Spring.REST.CRUD.Entity.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,25 +17,25 @@ public class EmployeeDAOImpl implements EmployeeDAO{
         this.entityManager=theEntityManager;
     }
     @Override
-    public List<Employee> findAll() {
-        TypedQuery<Employee> theQuery = entityManager.createQuery("from Employee",Employee.class);
+    public List<User> findAll() {
+        TypedQuery<User> theQuery = entityManager.createQuery("from Employee",User.class);
         return theQuery.getResultList();
     }
 
     @Override
-    public Employee findById(int id) {
-        return entityManager.find(Employee.class, id);
+    public User findById(int id) {
+        return entityManager.find(User.class, id);
     }
 
     @Override
-    public Employee save(Employee theEmployee) {
+    public User save(User theEmployee) {
         //if employee id be equals to 0 then entity manager inserts the employee as e new record. otherwise it will be updated.
         return entityManager.merge(theEmployee);
     }
 
     @Override
-    public Employee deleteById(int id) {
-        Employee theEmployee = entityManager.find(Employee.class, id);
+    public User deleteById(int id) {
+        User theEmployee = entityManager.find(User.class, id);
         entityManager.remove(theEmployee);
         return theEmployee;
     }

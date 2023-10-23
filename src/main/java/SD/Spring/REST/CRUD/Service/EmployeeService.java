@@ -1,12 +1,13 @@
 package SD.Spring.REST.CRUD.Service;
 
-import SD.Spring.REST.CRUD.Entity.Employee;
+
+import SD.Spring.REST.CRUD.Entity.User;
 
 import java.util.List;
 
 public interface EmployeeService {
-    Employee findEmployeeById(int id);
-    List<Employee> findAll();
-    Employee save(Employee theEmployee);
+    User findEmployeeById(int id);
+    List<User> findAll();
+    User save(User theEmployee);
     void delete(Integer employeeId);
 }
