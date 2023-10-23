@@ -1,8 +1,5 @@
 package SD.Spring.REST.CRUD.Entity;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-
 public class UserErrorResponse {
     private int status;
     private String message;
